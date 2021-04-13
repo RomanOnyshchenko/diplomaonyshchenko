@@ -4,78 +4,80 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>ArcGIS API for JavaScript Tutorials: Display your location</title>
 
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
     <style>
       html,
       body,
       #viewDiv {
-        padding: 0;
+        padding-top: 25px;
         margin: 0;
         height: 100%;
         width: 100%;
       }
     </style>
-
+<style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style>
     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.18/"></script>
 
-
     <script>
       require([
-          "esri/config",
-          "esri/Map",
-          "esri/views/MapView",
-          "esri/widgets/Locate",
+        "esri/config",
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer"
+      ], function(esriConfig,Map, MapView, FeatureLayer) {
 
-          "esri/widgets/Track",
-          "esri/Graphic"
-
-        ], function(
-            esriConfig,
-            Map,
-            MapView,
-            Locate,
-
-            Track,
-            Graphic
-
-        ) {
-
-        esriConfig.apiKey = "AAPK6746270195aa42f1a36e4e4f145be8d5VoTM0E_ssGSCcXgrHgdMHzpU42OkyzXsUEoWPkgRzIIeNHv_ergxYBajQ_NXd36t";
+        esriConfig.apiKey = "AAPKaa6c865d06214a37a379e8c766043c3c--85zIpOntu25QczCE9HJNGuichuDeCuPBTpO7j8f6_mhk6E1xer-3qmyZziwHIw";
 
         const map = new Map({
-          basemap: "arcgis-navigation"
+          basemap: "arcgis-topographic" //Basemap service
         });
 
         const view = new MapView({
           container: "viewDiv",
           map: map,
-          center: [-40, 28],
-          zoom: 2
+          center: [25, 50], //Longitude, latitude
+          zoom: 30,
+          constraints: {
+            snapToZoom: false
+          }
         });
 
-        const track = new Track({
-          view: view,
-          graphic: new Graphic({
-            symbol: {
-              type: "simple-marker",
-              size: "12px",
-              color: "green",
-              outline: {
-                color: "#efefef",
-                width: "1.5px"
-              }
-            }
-          }),
-          useHeadingEnabled: false
+        const layer = new FeatureLayer({
+          url: "https://services8.arcgis.com/5naQhtNz6I99vu25/arcgis/rest/services/arcgis/FeatureServer"
         });
-        view.ui.add(track, "top-left");
+        map.add(layer);
+
 
       });
     </script>
-
   </head>
   <body>
-    <div id="viewDiv"></div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Forest</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="diploma.html">Головна</a></li>
+          <li><a href="diplomaMap.html">Карта</a></li>
+          <li><a href="#">Аналіз</a></li>
+          <li><a href="#">Діаграми</a></li>
+          <li><a href="#">Графіки</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <div>
+      <div class="embed-container"><iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="example1" src="//onjwztxyo3gql79a.maps.arcgis.com/apps/Embed/index.html?webmap=b5820fd3c74840bea82aea4298b298d6&extent=17.9737,44.1342,40.9571,52.1329&zoom=true&previewImage=false&scale=true&details=true&legend=true&active_panel=legend&disable_scroll=true&theme=light"></iframe></div>
+    </div>
   </body>
 </html>
 
