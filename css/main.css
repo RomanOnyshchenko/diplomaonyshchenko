@@ -99,3 +99,29 @@ hr {
 
 }
 
+
+#dg{
+	background: #e0e0e0;
+}
+
+
+#dg h4 {
+	font-size: 40px;
+}
+
+
+.tilt{
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-transition: all 0.5s ease;
+}
+
+.tilt:hover{
+	-webkit-transform: scale(1.4);
+	-moz-transform: scale(1.4);
+	-o-transform: scale(1.4);
+	-ms-transform: scale(1.4);
+	-transform: scale(1.4);
+}
