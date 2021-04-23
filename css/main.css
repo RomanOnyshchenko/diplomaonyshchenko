@@ -125,3 +125,28 @@ hr {
 	-ms-transform: scale(1.4);
 	-transform: scale(1.4);
 }
+
+.slider{
+	position: relative;
+	width: 960px;
+	height: 600px;
+	margin: 10px auto;
+	overflow: hidden;
+	border: 1px solid black;
+
+}
+
+.slider-before, .slider-after{
+	left:0;
+	top: 0;
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	overflow: hidden;
+	transition: all ease .1s;
+	-webkit-transition: all ease .1s;
+	-moz-transition: all ease .1s;
+	-ms-transition: all ease .1s;
+	-o-transition: all ease .1s;
+}
+
