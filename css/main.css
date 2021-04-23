@@ -134,6 +134,7 @@ hr {
 	overflow: hidden;
 	border: 1px solid black;
 
+
 }
 
 .slider-before, .slider-after{
@@ -148,5 +149,24 @@ hr {
 	-moz-transition: all ease .1s;
 	-ms-transition: all ease .1s;
 	-o-transition: all ease .1s;
+	
 }
 
+#gifwrap {
+	
+	background: url(../img/forest.gif) no-repeat center top;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 800px;
+	width: 100%;
+	background-size: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size:cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#gif{
+	text-align: center;
+
+}
